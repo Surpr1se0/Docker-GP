@@ -38,5 +38,5 @@ jobs:
           context: ./Dockerfile-configurator 
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/sqlserver:latest
+            ${{ secrets.DOCKER_USERNAME }}/sqlserver-configurator:latest
             ${{ secrets.DOCKER_USERNAME }}/sqlserver-configurator:${{ github.ref_name }}
