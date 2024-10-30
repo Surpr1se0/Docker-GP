@@ -26,11 +26,17 @@ jobs:
         with:
           context: ./Dockerfile-sqlserver 
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/sqlserver:${{ github.ref_name }} 
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/sqlserver:latest
+            ${{ secrets.DOCKER_USERNAME }}/sqlserver:${{ github.ref_name }}
+
+
 
       - name: Build and push sqlserver.configurator image
         uses: docker/build-push-action@v5
         with:
           context: ./Dockerfile-configurator 
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/sqlserver-configurator:${{ github.ref_name }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/sqlserver:latest
+            ${{ secrets.DOCKER_USERNAME }}/sqlserver-configurator:${{ github.ref_name }}
